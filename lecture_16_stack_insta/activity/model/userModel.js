@@ -4,21 +4,23 @@ const util = require("util");
 
 // query
 // create
-let create = (userObj) => {
-    // insert 
-    userObj.uid = uuidv4();
-    // create user 
-    return new Promise(function (resolve, reject) {
-        connection.query("INSERT INTO user SET ?", userObj, function (err, res) {
-            if (err) {
-                reject(err)
-                return;
-            } else {
-                resolve(res);
-            }
-        })
-    })
-}
+// let create = (userObj) => {
+//     // insert 
+//     userObj.uid = uuidv4();
+//     // create user 
+//     return new Promise(function (resolve, reject) {
+//         connection.query("INSERT INTO user SET ?", userObj, function (err, res) {
+//             if (err) {
+//                 reject(err)
+//                 return;
+//             } else {
+//                 resolve(res);
+//             }
+//         })
+//     })
+// }
+
+let create = factory.createFactory("user");
 
 // getby uid 
 let getById = (uid) => {
