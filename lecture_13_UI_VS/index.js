@@ -132,6 +132,7 @@ $(document).ready(async function () {
 
     // mycode
     $("#New").on("click", function (){
+        console.log("hell");
         createNewTab();
     })
      // mycode
