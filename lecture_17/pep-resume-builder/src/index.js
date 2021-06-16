@@ -18,15 +18,13 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 
-var firebaseConfig = {
-  apiKey: "AIzaSyDr0lm6biVEWBnPYQvhy5oGG_MLaCbuDE0",
-  authDomain: "resume-898a2.firebaseapp.com",
-  databaseURL: "https://resume-898a2.firebaseio.com",
-  projectId: "resume-898a2",
-  storageBucket: "resume-898a2.appspot.com",
-  messagingSenderId: "253055347294",
-  appId: "1:253055347294:web:cd9089a14a220c967522cf",
-  measurementId: "G-YS68QTD854"
+const firebaseConfig = {
+  apiKey: "AIzaSyDFtNWFzUAUVlDIX9SHg36SBRTheCqbSpY",
+  authDomain: "resumes1-17260.firebaseapp.com",
+  projectId: "resumes1-17260",
+  storageBucket: "resumes1-17260.appspot.com",
+  messagingSenderId: "318384229954",
+  appId: "1:318384229954:web:74c2feebe24dff46bd27db"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -34,7 +32,7 @@ firebase.initializeApp(firebaseConfig);
 const reduxStore = createStore(rootReducer, 
     compose(
       applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
-      // reduxFirestore(config)  // redux bindings for firestore
+      // reduxFirestore(config)  // redux bindings for firestorez
 
       reduxFirestore(firebase) 
     ));

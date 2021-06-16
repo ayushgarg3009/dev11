@@ -39,5 +39,3 @@ export const update=(documentId, contactSection)=>{
         )
     }
 }
-
-

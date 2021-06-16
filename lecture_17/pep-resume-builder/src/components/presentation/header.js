@@ -1,25 +1,31 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import logo from "../../static/images/logo.png";
 import {connect} from 'react-redux';
+import {signOut} from '../../actions/authActions';
 
 function LoggedIn(auth) {
+  console.log(auth);
+  console.log(auth.signOut);
   let uid =auth.auth.uid;
-  return (
-
-        <ul>
-            <li className="signin ">
-              <NavLink className="  " to="/register">
-               Logged in as {uid}
-              </NavLink>
-            </li>
-            <li className="signin"> 
-              <NavLink className="text-blue btnv-3" to="/login">
-             Signout
-              </NavLink>         
-            </li>
-          </ul>
-  )
+  console.log(uid);
+    return (
+      <ul>
+          <li className="signin ">
+            <NavLink className="  " to="/register">
+            {/* Logged in as {uid} */}
+             Logged in as {auth.auth.email}
+            </NavLink>
+          </li>
+          <li className="signin"> 
+            <NavLink className="text-blue btnv-3" to="/login" onClick={auth.signOut.signOut}  >
+            {/* onClick={signOut} */}
+              Signout
+            </NavLink>         
+          </li>
+        </ul>
+      )
+  
 
 }
 
@@ -41,11 +47,11 @@ function LoggesOut(props) {
 }
 
 const header = (props) => {
-
+console.log(props);
   const { auth } = props;
   // console.log(auth);
 
-
+console.log(auth);
   return (  
   <header className="header">
   <nav className="nav">
@@ -54,7 +60,7 @@ const header = (props) => {
       </a> 
         <div className="header-links full-height">
 
-        {auth && auth.uid ?<LoggedIn auth={auth}></LoggedIn>:<LoggesOut></LoggesOut>}
+        {auth && auth.uid ?<LoggedIn auth={auth} signOut={props} ></LoggedIn>:<LoggesOut></LoggesOut>}
           
           <ul id="nav-mid">
             <li>
@@ -66,7 +72,12 @@ const header = (props) => {
               <NavLink className="btn-nvt-gm" to="/about-us">
               About Us
               </NavLink>
-            </li>        
+            </li>    
+            <li className="holder-pricing">            
+              <NavLink className="btn-nvt-gm" to="/dashboard">
+              DASHBOARD
+              </NavLink>
+            </li>       
           </ul>
             
       </div>   
@@ -77,8 +88,15 @@ const header = (props) => {
 };
 
 const mapStateToProps=(state)=>{
+  console.log(state);
   return{
      auth: state.firebase.auth
   }
 }
-export default connect(mapStateToProps,null)(header);
+
+const mapDistpatchToProps = (dispatch) => {
+  return {
+    signOut: () => dispatch(signOut()),
+  };
+};
+export default connect(mapStateToProps, mapDistpatchToProps)(header);

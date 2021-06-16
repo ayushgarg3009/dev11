@@ -14,8 +14,11 @@ export default function authReducer(state= initialState.auth, action){
             return  update(state,{ErrorMessage:{$set:''}}); 
         case actionTypes.REGISTER_FAILED:
             return  update(state,{ErrorMessage:{$set:''}}); 
-            default:
-             return state;
+        case "SIGN_OUT":
+            console.log("You signed out..");
+            return state;
+        default:
+            return state;
         
     }
 }

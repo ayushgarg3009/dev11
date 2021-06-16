@@ -39,11 +39,11 @@ class Education extends React.Component {
     }
   }
 
-  // componentWillMount(){
-  //   if(!this.state.document || !this.state.document.id){
-  //       this.props.history.push('/getting-started');
-  //   }
-  // }
+  componentWillMount(){
+    if(!this.state.document || !this.state.document.id){
+        this.props.history.push('/getting-started');
+    }
+  }
 
   onChange = (event) => {
 

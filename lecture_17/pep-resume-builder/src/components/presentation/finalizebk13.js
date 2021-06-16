@@ -23,7 +23,7 @@ class Finalize extends React.Component {
       educationSection:this.props.educationSection,
       contactSection:this.props.contactSection,
       // skinCd: this.props.skinCd
-      document: this.props.document,
+      document: this.props.document
 
       
       // educationSection: {
@@ -56,32 +56,8 @@ class Finalize extends React.Component {
   }
   
   componentWillReceiveProps(nextProps){
-    console.log(nextProps.document.bgcolor);
     this.setState({document:nextProps.document});
   }
-
-onFontFamily = async (fontfamily) => {
-  console.log(fontfamily)
-  // this.props.documentActions.updateSkinCd(this.state.document.id, skinCd);
-  
-    await this.props.documentActions.updateFontFamily(this.state.document.id, fontfamily)
-}
-
-onFontSize = async (fontsize) => {
-  console.log(fontsize)
-  // this.props.documentActions.updateSkinCd(this.state.document.id, skinCd);
-  
-    await this.props.documentActions.updateFontSize(this.state.document.id, fontsize)
-}
-
-
-oncolor = async (color) => {
-  console.log(color)
-  // this.props.documentActions.updateSkinCd(this.state.document.id, skinCd);
-  
-    await this.props.documentActions.updateBgColor(this.state.document.id, color)
-  
-}
 
   onChange = (skinCd) => {
 
@@ -147,14 +123,12 @@ oncolor = async (color) => {
       
     };
     const { educationSection, contactSection } = this.state
-    console.log(this.state.document.skinCd)
-    console.log(this.state.document.bgcolor)
     return (
       <div className="container med finalize-page" >
         
         <div className="funnel-section ">
           <div className="finalize-preview-card" id="resumePreview">
-            <ResumePreview fontsize={this.state.document.fontsize} fontfamily={this.state.document.fontfamily} bgcolor={this.state.document.bgcolor} skinCd={this.state.document.skinCd} contactSection={contactSection} educationSection={educationSection}></ResumePreview>
+            <ResumePreview  skinCd={this.state.document.skinCd} contactSection={contactSection} educationSection={educationSection}></ResumePreview>
           </div>
           <div className="finalize-settings">
           <div className="section">
@@ -163,15 +137,10 @@ oncolor = async (color) => {
                     <p className=" center">
                     You’ll be able to edit and change this template later!
                     </p>
-
-
-                    <hr></hr>
-                    <p className=" center">Download Resume As PDF</p>
-                    <div style={{ margin: "15px" }} className=" center"><button className="btn hvr-float-shadow" type='button' onClick={this.onDownload}>Save And Download</button></div>
+                    <div><button className="btn hvr-float-shadow" type='button' onClick={this.onDownload}>Save And Download</button></div>
                     {
                         skinCodes.map((value,index) => {
                           console.log(index);
-                          
                           if(this.state.document.skinCd==value){
                             return( <div key={index} className="template-card rounded-border">
                                   <i className={this.state.document.skinCd==value?'fa fa-check-circle selected' :'hide'} aria-hidden="true" ></i>
@@ -183,56 +152,10 @@ oncolor = async (color) => {
     
                         })
                     }
-                    <hr></hr>
-                    <div>
-                      <p className=" center">Change Font Family</p>
-                      <div className="funnel-section " >
-                        <div style={{ cursor: "pointer" }}  onClick={()=>this.onFontFamily("josefin")} ><p>Josefin</p></div>
-                        {/* className={this.state.document.bgcolor ? "skin1 hell":"" } */}
-                        {/* style={{color: this.state.document.bgcolor}} */}
-                        <div style={{ cursor: "pointer" }}  onClick={()=>this.onFontFamily("cursive")} ><p>Roboto</p></div>
-                        <div style={{ cursor: "pointer" }}  onClick={()=>this.onFontFamily("monospace")} ><p>Montserrat</p></div>
-                      </div>
-                      
-                    </div>
-
-                    <hr></hr>
-                    <div>
-                      <p className=" center">Change Font Size</p>
-                      <div className="funnel-section " >
-                        <div style={{ cursor: "pointer" }}  onClick={()=>this.onFontSize("1px")} ><p>Small</p></div>
-                        {/* className={this.state.document.bgcolor ? "skin1 hell":"" } */}
-                        {/* style={{color: this.state.document.bgcolor}} */}
-                        <div style={{ cursor: "pointer" }}  onClick={()=>this.onFontSize("4px")} ><p>Medium</p></div>
-                        <div style={{ cursor: "pointer" }}  onClick={()=>this.onFontSize("7px")} ><p>Large</p></div>
-                      </div>
-                      
-                    </div>
-                    <hr></hr>
-                    <div style= {{ margin: "10px" }}>
-                      <p className=" center">Change Color</p>
-                      <div className="funnel-section " >
-                        <div style={{ cursor: "pointer", backgroundColor:"red",width: "20px",
-                            height: "20px", borderRadius: "50%", border: "2px solid black"}}  onClick={()=>this.oncolor("red")} ></div>
-                        {/* className={this.state.document.bgcolor ? "skin1 hell":"" } */}
-                        {/* style={{color: this.state.document.bgcolor}} */}
-                        <div style={{ cursor: "pointer", backgroundColor:"blue",width: "20px",
-                            height: "20px", borderRadius: "50%", border: "2px solid black"}} onClick={()=>this.oncolor("blue")} ></div>
-                        <div style={{ cursor: "pointer", backgroundColor:"teal",width: "20px",
-                            height: "20px", borderRadius: "50%", border: "2px solid black"}}  onClick={()=>this.oncolor("teal")} ></div>
-                        </div>
-                      
-                    </div>
-                    <hr></hr>
-
-
-                    
-
-                    
 
                    
-                    <p className=" center">Change Template</p>
-                      <div className=" center"><label className ="expand " for="check">Click Template</label></div>
+
+                      <label className ="expand " for="check">Click me</label>
 
                       <input id="check" type="checkbox" />
 
@@ -269,7 +192,6 @@ oncolor = async (color) => {
 // export default Finalize;
 
 const mapStateToProps=(state)=>{
-  console.log(state.document.bgcolor);
   return{
     // auth:authReducer,
     educationSection:state.education,
@@ -287,3 +209,4 @@ const mapDispatchToProps=(dispatch)=>{
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(Finalize)
+

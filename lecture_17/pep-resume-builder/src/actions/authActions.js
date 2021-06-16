@@ -37,6 +37,19 @@ export const register=(userData)=>{
     
 // }
 
-export function signout(){
-    return {type: actionTypes.SIGN_OUT}
+// export function signout(){
+//     return {type: actionTypes.SIGN_OUT}
+// }
+
+
+export const signOut=()=>{
+    return async (dispatch, getState, {getFirebase}) => {
+        const firebase = getFirebase();        
+        await firebase.auth().signOut().then(()=>
+            dispatch({type: actionTypes.SIGN_OUT})
+        )
+        .catch((err) => {
+            dispatch({type: actionTypes.REGISTER_FAILED,err})
+        });
+    }
 }

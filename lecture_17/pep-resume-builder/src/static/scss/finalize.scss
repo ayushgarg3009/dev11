@@ -66,3 +66,12 @@
   input#check:checked + .test {
     height: 400px;
   }
+
+
+
+.add {
+  &
+  .skin1{
+    background-color: teal;
+  }
+}

@@ -12,7 +12,8 @@ class GettingStarted extends React.Component{
         super(props, context);
         this.state = {
             // skinCd: this.props.skinCd
-            document: this.props.document
+            document: this.props.document,
+           
         };
       }
 
@@ -77,7 +78,8 @@ class GettingStarted extends React.Component{
 const mapStateToProps=(state)=>{
     return{
         // skinCd:state.document.skinCd
-        document: state.document
+        document: state.document,
+
     }
   }
 
