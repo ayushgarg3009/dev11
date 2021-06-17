@@ -1,6 +1,7 @@
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://Ayush:ayushiitb@30@cluster0.2utsm.mongodb.net/Resume_Builder?retryWrites=true&w=majority";
+let { email, pwd } = require("../../credentials");
+const uri = "mongodb+srv://email:pwd@cluster0.2utsm.mongodb.net/Resume_Builder?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   const collection = client.db("Resume_Builder").collection("resumes");
