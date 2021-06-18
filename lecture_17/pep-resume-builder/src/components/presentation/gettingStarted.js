@@ -18,10 +18,10 @@ class GettingStarted extends React.Component{
       }
 
 
-      // componentWillReceiveProps(nextProps){
-      //   console.log(nextProps);
-      //   this.setState({skinCd:nextProps.skinCd})
-      // }
+      componentWillReceiveProps(nextProps){
+        console.log(nextProps);
+        this.setState({skinCd:nextProps.skinCd})
+      }
 
 
     //   onChange = (event) => {
@@ -33,7 +33,8 @@ class GettingStarted extends React.Component{
         // 3. direct
           // this.props.setSkinCd(skinCd);
           // 4. documentActions
-
+          console.log(skinCd);
+          console.log(this.state.document.id);
           if(this.state.document.id){
             await this.props.documentActions.updateSkinCd(this.state.document.id,skinCd);
           }

@@ -19,13 +19,13 @@ import 'firebase/auth';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDFtNWFzUAUVlDIX9SHg36SBRTheCqbSpY",
-  authDomain: "resumes1-17260.firebaseapp.com",
-  projectId: "resumes1-17260",
-  storageBucket: "resumes1-17260.appspot.com",
-  messagingSenderId: "318384229954",
-  appId: "1:318384229954:web:74c2feebe24dff46bd27db"
-};
+  apiKey: "AIzaSyCOhmv5luH7zwsFltH5y-gM6jIf7zVQaX8",
+    authDomain: "resume2-de916.firebaseapp.com",
+    projectId: "resume2-de916",
+    storageBucket: "resume2-de916.appspot.com",
+    messagingSenderId: "543175528468",
+    appId: "1:543175528468:web:be4e225e3ab81e133e5701"
+  };
 
 firebase.initializeApp(firebaseConfig);
 

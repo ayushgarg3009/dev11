@@ -14,7 +14,7 @@ import Contacts from './components/presentation/contact';
 import Education from './components/presentation/education';
 import Finalize from './components/presentation/Finalize';
 import Dashboard from './components/presentation/dashboard';
-import Sample from './components/presentation/sample';
+// import Sample from './components/presentation/sample';
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
           <Route path="/login" component={Login}></Route>
           <Route path="/register" component={Register}></Route>  
           <Route path="/finalize" component={Finalize}></Route>
-          <Route path="/sample" component={Sample}></Route>
+          {/* <Route path="/sample" component={Sample}></Route> */}
           <Route path="/dashboard" component={Dashboard}></Route>       
           <Route path="/" component={LandingPage}></Route>
           

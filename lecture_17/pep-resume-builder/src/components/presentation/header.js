@@ -1,6 +1,6 @@
 import React from "react";
-import { NavLink,Link } from "react-router-dom";
-import logo from "../../static/images/logo.png";
+import { NavLink,Link, Redirect } from "react-router-dom";
+import logo from "../../static/images/res.png";
 import {connect} from 'react-redux';
 import {signOut} from '../../actions/authActions';
 
@@ -9,9 +9,27 @@ function LoggedIn(auth) {
   console.log(auth.signOut);
   let uid =auth.auth.uid;
   console.log(uid);
+  
     return (
+      <div>
+      <Redirect to="/getting-started" />
       <ul>
           <li className="signin ">
+          <li>
+            <NavLink className="btn-nvt-gm" to="/resume-templates">
+            Resume Templates
+            </NavLink>
+            </li> 
+            <li className="holder-pricing">            
+              <NavLink className="btn-nvt-gm" to="/about-us">
+              About Us
+              </NavLink>
+            </li>    
+            <li className="holder-pricing">            
+              <NavLink className="btn-nvt-gm" to="/dashboard">
+              DASHBOARD
+              </NavLink>
+            </li>       
             <NavLink className="  " to="/register">
             {/* Logged in as {uid} */}
              Logged in as {auth.auth.email}
@@ -24,6 +42,7 @@ function LoggedIn(auth) {
             </NavLink>         
           </li>
         </ul>
+        </div>
       )
   
 
@@ -56,6 +75,7 @@ console.log(auth);
   <header className="header">
   <nav className="nav">
       <a href="/" className="holder-logo">
+        {/* <img className='logo' src={logo}></img> */}
         <img className='logo' src={logo}></img>
       </a> 
         <div className="header-links full-height">
@@ -63,7 +83,7 @@ console.log(auth);
         {auth && auth.uid ?<LoggedIn auth={auth} signOut={props} ></LoggedIn>:<LoggesOut></LoggesOut>}
           
           <ul id="nav-mid">
-            <li>
+            {/* <li>
             <NavLink className="btn-nvt-gm" to="/resume-templates">
             Resume Templates
             </NavLink>
@@ -77,7 +97,7 @@ console.log(auth);
               <NavLink className="btn-nvt-gm" to="/dashboard">
               DASHBOARD
               </NavLink>
-            </li>       
+            </li>        */}
           </ul>
             
       </div>   

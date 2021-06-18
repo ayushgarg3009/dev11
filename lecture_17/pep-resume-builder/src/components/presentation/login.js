@@ -22,9 +22,9 @@ import * as authActions from '../../actions/authActions';
         var val =event.target.value;
         this.setState({...this.state, auth:{...this.state.auth, [key]:val}});
     }
-    onSubmit=()=>{
-       this.props.authActions.signIn(this.state.auth)
-       this.props.history.push('/');
+    onSubmit= async ()=>{
+      await this.props.authActions.signIn(this.state.auth)
+      console.log(this.state.errorMessage);
     }
 
   render() { 
@@ -51,6 +51,7 @@ import * as authActions from '../../actions/authActions';
                         <div className="form-buttons">
                             <button onClick={this.onSubmit} className="btn hvr-float-shadow" type='button'>Login</button>
                         </div>
+                      
                     </div>
                 </div>
 

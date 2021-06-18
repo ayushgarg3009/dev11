@@ -2,10 +2,10 @@ import * as actionTypes from './actionTypes';
 
 export const signIn=(userData)=>{
 
-    return (dispatch, getState, {getFirebase}) => {
+    return async (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
         
-        firebase.auth().signInWithEmailAndPassword(
+        await firebase.auth().signInWithEmailAndPassword(
             userData.email,
             userData.password
         ).then(() => {
